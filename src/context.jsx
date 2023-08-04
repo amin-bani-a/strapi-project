@@ -3,7 +3,8 @@ import { createContext, useContext, useState } from "react";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [pageId, setPageId] = useState(null);
 
   const openSidebar = () => {
     setIsSidebarOpen(true);
@@ -17,6 +18,8 @@ export const AppProvider = ({ children }) => {
         isSidebarOpen,
         openSidebar,
         closeSidebar,
+        pageId,
+        setPageId,
       }}
     >
       {children}
